@@ -134,4 +134,38 @@ class Programa
             }
         }
     }
+
+    public static void Reportes()
+    {
+        string[] nombresMedicamentos = new string[120];
+        int cantidad = 0;
+        foreach (TratamientoMedico item in tratamientosMedicos)
+        {
+            if (item != null) { cantidad++; }
+        }
+        Console.WriteLine(cantidad.ToString());
+
+        Console.WriteLine("\n");
+
+        foreach (TratamientoMedico item in tratamientosMedicos)
+        {
+            if (item != null)
+            {
+                foreach (Medicamento me in item.Medicamento)
+                {
+                    for (int i = 0; i <= nombresMedicamentos.Length; i++)
+                    {
+                        if (nombresMedicamentos[i] == me.NombreDelMedicamento)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            nombresMedicamentos[i] = me.NombreDelMedicamento;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
